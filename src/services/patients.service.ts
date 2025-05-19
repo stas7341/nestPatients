@@ -103,4 +103,8 @@ export class PatientsService {
       max,
     };
   }
+
+  async getAllPatients(): Promise<Patient[]> {
+    return this.patientRepo.find();
+  }
 }

@@ -28,10 +28,15 @@ export class PatientsController {
     return this.patientsService.getAnalytics(+id, startDate, endDate);
   }
 
-  @Get(':id/?')
+  @Get(':id')
   async getPatient(@Param('id') id: number) {
     const patient = await this.patientsService.getPatient(id);
     if (!patient) throw new NotFoundException('Patient not found');
     return patient;
+  }
+
+  @Get()
+  async getAllPatients() {
+    return this.patientsService.getAllPatients();
   }
 }

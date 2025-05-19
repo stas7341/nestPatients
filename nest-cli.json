@@ -8,6 +8,10 @@
       {
         "include": "**/*.json",
         "outDir": "./dist"
+      },
+      {
+        "include": "fe/*.html",
+        "outDir": "./dist"
       }
     ]
   }

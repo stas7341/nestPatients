@@ -1,0 +1,25 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient Dashboard</title>
+</head>
+<body>
+  <h1>Patients</h1>
+  <ul id="patientList"></ul>
+
+  <script>
+    fetch('/patients')
+      .then((res) => res.json())
+      .then((patients) => {
+        const list = document.getElementById('patientList');
+        patients.forEach(p => {
+          const item = document.createElement('li');
+          item.innerText = `${p.name} (Age: ${p.age}) - Requests: ${p.requestCount}`;
+          list.appendChild(item);
+        });
+      });
+  </script>
+</body>
+</html>

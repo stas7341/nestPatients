@@ -1,8 +1,3 @@
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Project setup
 
 ```bash
@@ -18,19 +13,13 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
+## Test application
+GET /patients/high-heart-rate-events
 
-## Run tests
+## /patients/1/analytics?start=2024-03-01T00:00:00Z&end=2024-03-02T00:00:00Z
+GET /patients/:id/analytics
 
-```bash
-# unit tests
-$ npm run test
+GET /patients/:id
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+GET /patients
 ```

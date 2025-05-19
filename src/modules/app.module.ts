@@ -1,14 +1,17 @@
 import { Module } from '@nestjs/common';
-import { AppController } from '../controllers/app.controller';
-import { AppService } from '../services/app.service';
 import { PatientModule } from './patient.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Patient } from '../models/patient.model';
 import { HeartRate } from '../models/heartRate.model';
 import { EntitiesModule } from './entities.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'fe'),
+    }),
     TypeOrmModule.forRoot({
       type: 'sqlite', // or 'postgres'
       database: 'db.sqlite',
@@ -17,8 +20,6 @@ import { EntitiesModule } from './entities.module';
     }),
     EntitiesModule,
     PatientModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+  ]
 })
 export class AppModule {}
